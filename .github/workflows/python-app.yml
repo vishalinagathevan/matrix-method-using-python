@@ -16,8 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-
-
+        
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
@@ -27,4 +26,4 @@ jobs:
     
     - name: run python program
       run: |
-        python odd-or-even.py
+            python odd-or-even.py
