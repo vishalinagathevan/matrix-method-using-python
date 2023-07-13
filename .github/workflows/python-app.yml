@@ -4,14 +4,14 @@
 name: Python application
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      myInput:
+        description: 'User Input Here'
+        required: true
 
 jobs:
-  build:
-
+  run-python-test:
     runs-on: macos-latest
 
     steps:
@@ -23,4 +23,5 @@ jobs:
    
     - name: run python program
       run: |
-        python odd-or-even.py
+       echo "Store: ${{ github.event.inputs.myInput }}"
+          INPUT_STORE=${{ github.event.inputs.myInput }} python odd-or-even.py
