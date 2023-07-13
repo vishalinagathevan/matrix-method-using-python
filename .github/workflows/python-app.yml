@@ -9,12 +9,14 @@ on:
       myInput:
         description: 'User Input Here'
         required: true
+        default: "Hello World"
 
 jobs:
   run-python-test:
     runs-on: macos-latest
 
     steps:
+    - name: Checkout
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
